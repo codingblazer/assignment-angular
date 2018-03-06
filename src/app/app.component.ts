@@ -9,23 +9,23 @@ import 'rxjs/add/operator/map';
 })
 export class AppComponent {
   title = 'app';
-  private apiUrl = 'https://api.github.com/users/codingblazer/repos';
+
   data : any = {};
+  username : string = 'codingblazer';
+  repo : string = 'assignment-angular';
 
   constructor(private http : Http){
     console.log('fetching data starts');
-    this.getRepo();
-    this.getData();
   }
 
-  getData(){
-    return this.http.get(this.apiUrl).map((res : Response)=> res.json());
-  }
-
-  getRepo(){
-    this.getData().subscribe(data=>{
-      console.log(data[0].name);
-      this.data = data;
+  addRepoData(){
+    console.log('I am in'+this.username+'  '+this.repo);
+    var apiUrl : string = 'https://api.github.com/repos/'+this.username+'/'+this.repo;
+    return this.http.get(apiUrl).map((res : Response)=> res.json()).subscribe(data=>{
+      console.log(data);
     });
+  }
+
+
   }
 }
