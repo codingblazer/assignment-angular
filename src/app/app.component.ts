@@ -32,6 +32,24 @@ export class AppComponent {
     });
   }
 
+  sortName(){
+    this.repos.sort((a,b)=>{
+      return (a.name < b.name) - (a.name > b.name);
+    });
+  }
+
+  sortStars(){
+    this.repos.sort((a,b)=>{
+      return (a.stargazers_count<b.stargazers_count)-(a.stargazers_count>b.stargazers_count);
+    });
+  }
+
+  sortForks(){
+    this.repos.sort((a,b)=>{
+      return (a.forks<b.forks)-(a.forks>b.forks);
+    });
+  }
+
 
   }
 }

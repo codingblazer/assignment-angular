@@ -1,11 +1,16 @@
 
-<h2>Here you can fetch information about any public github repo </h2>
+<h2>Github Based Assignment </h2>
 
 <form>
     <input type="text" name="uname" placeholder="Github Username" [(ngModel)]="username">
     <input type="text" name="rname" placeholder="Github Repo Name" [(ngModel)]="repo">
-    <input type="submit"  value="Add Item" (click)="addRepoData()">
+    <input type="submit"  value="Go" (click)="addRepoData()">
 </form>
+<br><br>
+<input type="submit" value="Sort By Name" (click)="sortName()">
+<input type="submit" value="Sort By Stars" (click)="sortStars()">
+<input type="submit" value="Sort By Forks" (click)="sortForks()">
+
 <br><br><br>
 <div  class="card">
   <table style="width:80%" border="5px">
